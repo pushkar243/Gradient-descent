@@ -1,0 +1,72 @@
+Theory 1: Gradient descent is an optimization algorithm used in machine learning and deep learning to minimize a cost function. The goal of gradient descent is to find the parameters (weights and biases) of a model that minimize the cost function, which measures the difference between the predicted values of the model and the actual target values in a training dataset.
+
+Here's how gradient descent works:
+
+Initialization: It starts with an initial set of parameters for the model.
+
+Calculation of the Gradient: The algorithm computes the gradient of the cost function with respect to the model's parameters. This gradient indicates the direction and magnitude of the steepest increase in the cost function.
+
+Update Parameters: The parameters are updated in the opposite direction of the gradient to reduce the cost. The learning rate is a hyperparameter that determines the step size for each update. The formula for parameter update is typically of the form:
+
+New Parameter Value = Old Parameter Value - (Learning Rate) * Gradient
+
+Repeat: Steps 2 and 3 are repeated iteratively until the algorithm converges to a minimum of the cost function, or until a predetermined number of iterations is reached.
+
+There are different variants of gradient descent, including:
+
+Batch Gradient Descent: The entire training dataset is used to compute the gradient in each iteration. This can be computationally expensive for large datasets.
+
+Stochastic Gradient Descent (SGD): In each iteration, a single randomly chosen training example is used to compute the gradient. This makes it faster but can lead to noisy updates.
+
+Mini-Batch Gradient Descent: It strikes a balance between batch and stochastic gradient descent by using a small random subset (mini-batch) of the training data in each iteration.
+
+To understand and experiment with the convergence using the optimal batch size in mini-batch gradient descent, you'll need to consider the following theory and steps for conducting experiments:
+
+Theory 2( for mini batch gradient descent):
+
+In mini-batch gradient descent, the batch size refers to the number of training examples used in each iteration to compute the gradient and update the model parameters. The optimal batch size can significantly impact the convergence of the training process. Here's a brief overview of the key concepts and considerations:
+
+Batch Size Effects:
+
+Large Batch Size: Using a large batch size can lead to faster convergence in terms of computation but may result in a loss of fine-grained information and possibly convergence to suboptimal solutions.
+Small Batch Size: Smaller batch sizes provide more noise in gradient estimates, which can slow down convergence due to more frequent updates, but they may also help the model escape local minima and converge to better solutions.
+Choosing the Optimal Batch Size:
+
+The optimal batch size depends on the specific problem, the dataset, and the architecture of the neural network.
+Grid search or random search can be used to find the optimal batch size by experimenting with different batch sizes.
+It's a trade-off between the benefits of large batches (faster computation) and small batches (potentially better convergence).
+Experiment Steps:
+
+Here are the steps to conduct an experiment to determine the optimal batch size for mini-batch gradient descent:
+
+Data Preparation:
+
+Select a dataset appropriate for your problem.
+Preprocess the data, including normalization and splitting into training and validation sets.
+Model Selection:
+
+Choose a neural network architecture suitable for your problem, and set up the cost (loss) function and optimization method (mini-batch gradient descent).
+Define Batch Size Range:
+
+Define a range of batch sizes to experiment with. For example, you can start with a small batch size (e.g., 16) and increase it gradually (e.g., 32, 64, 128) up to larger values.
+Training Loop:
+
+For each batch size in the defined range, perform the following steps:
+Initialize the model parameters.
+Train the model using mini-batch gradient descent with the current batch size.
+Monitor and record the training and validation loss over epochs.
+Repeat for multiple runs to account for randomness in the initial parameterization and data shuffling.
+Evaluation:
+
+Evaluate the performance metrics, convergence speed, and final accuracy or loss for each batch size.
+Plot Results:
+
+Create plots or visualizations to compare the training and validation curves for different batch sizes.
+Look for signs of overfitting, underfitting, or optimal convergence.
+Select Optimal Batch Size:
+
+Choose the batch size that yields the best convergence and generalization performance on the validation set.
+Fine-Tuning:
+
+Once you've identified the optimal batch size, you can fine-tune other hyperparameters such as the learning rate or network architecture for further improvements.
+By following these steps and experimenting with different batch sizes, you can determine the optimal batch size that leads to faster convergence and better generalization for your specific machine learning or deep learning task. Keep in mind that the optimal batch size may vary from one problem to another, so it's essential to perform these experiments for each new task.
