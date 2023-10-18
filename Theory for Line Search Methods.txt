@@ -1,0 +1,33 @@
+1. Bisection Line Search:
+
+Bisection line search is a simple method for finding the minimum of a function within a given interval. It works as follows:
+
+Given an initial interval [a, b] containing a local minimum of the function, the method iteratively divides the interval in half.
+At each iteration, it evaluates the function at two points, typically the midpoint c = (a + b) / 2 and another point inside the interval.
+If the function value at the midpoint is smaller than at the other point, the algorithm updates the interval [a, b] to [a, c], effectively discarding the right half of the interval.
+If the function value at the midpoint is greater, the interval is updated to [c, b], discarding the left half.
+This process continues until the width of the interval becomes smaller than a predefined tolerance.
+Observation: Bisection line search is guaranteed to converge to a local minimum within the given interval but may require many iterations to do so, especially for functions with complex shapes.
+
+2. Golden Section Line Search:
+
+The Golden Section line search is a more efficient variant of bisection, exploiting the golden ratio. It follows these principles:
+
+Initially, it defines two points, x1 and x2, within the interval [a, b] such that they divide the interval in a special ratio.
+It then evaluates the function at these two points.
+Based on the function values, it discards either the left or the right portion of the interval by updating a and b.
+The key idea is to choose x1 and x2 in such a way that the ratio between the smaller and larger segments of the interval is the golden ratio (approximately 0.61803).
+This ratio ensures that the method efficiently narrows down the interval containing the minimum.
+Observation: The Golden Section line search converges faster than simple bisection because it exploits the special properties of the golden ratio. It reduces the interval more quickly, requiring fewer iterations to reach the minimum.
+
+3. Armijo Rule Line Search:
+
+The Armijo Rule is commonly used in gradient-based optimization algorithms to determine the step size. It involves the following principles:
+
+Given a starting point, it iteratively reduces the step size.
+At each iteration, it evaluates the function at a proposed point along the search direction.
+It compares the function value at this point with a linear approximation of the function value.
+The step size is reduced until the Armijo condition is satisfied. The condition typically involves the rate of decrease in function value, a user-defined parameter (alpha), and a fraction of the gradient's magnitude (beta).
+Observation: The Armijo Rule line search adaptively selects a step size that guarantees a sufficient reduction in the function value. It is a key component in many optimization algorithms, such as gradient descent, and helps balance convergence speed and stability.
+
+The choice of line search method depends on the specific optimization problem, the characteristics of the objective function, and the available computational resources. Each method has its advantages and trade-offs, and selecting the most suitable one is often an empirical process.
